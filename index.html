@@ -13,7 +13,7 @@
             /* LION を意識した深緑系コーポレートカラー */
             --primary: #00853f;
             --primary-light: #00a651;
-            --gray-bg: #f5f7f8;
+            --gray-bg: #e9ebec;
             --card-bg: #ffffff;
             --text-main: #222;
         }
@@ -63,6 +63,16 @@
         section {
             margin-top: 64px;
             position: relative; /* 背景重ね用 */
+        }
+        h2,h3 {
+            text-align:center;
+        }
+        .img-wrap {
+            margin:0 auto;
+        }
+        img {
+            width: 70%;
+            border-radius: 12px;
         }
 
         /* --------------------------------------------------
@@ -125,7 +135,7 @@
             gap: 24px;
         }
         .card {
-            background: var(--card-bg);
+            background: var(--gray-bg);
             border-radius: 12px;
             box-shadow: 0 3px 12px rgba(0,0,0,0.05);
             padding: 24px 20px 28px;
@@ -216,7 +226,9 @@
 
         <!-- 会社概要 -->
         <section>
-            <img src="images/Company.jpg"/>
+            <div class="img-wrap">
+                <img src="images/Company.jpg"/>
+            </div>
             <h2>会社情報</h2>
             <h3>会社概要</h3>
             <div class="card-grid">
@@ -232,7 +244,9 @@
 
         <!-- 事業目的 -->
         <section>
-            <img src="images/Business.jpg"/>
+            <div class="img-wrap">
+                <img src="images/Business.jpg"/>
+            </div>
             <h2>事業目的</h2>
             <div class="card">
                 <ul>
