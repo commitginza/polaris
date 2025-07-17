@@ -59,14 +59,34 @@
         }
 
         /* --------------------------------------------------
-           数字で見る POLARIS セクション
+           セクション背景（★追加）
+        -------------------------------------------------- */
+        section {
+            margin-top: 64px;
+            position: relative; /* 背景重ね用 */
+        }
+        /* data-bg が付いたセクションは、CSS 変数 --section-bg に指定した画像を敷く */
+        section[data-bg]::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: var(--section-bg) center/cover no-repeat;
+            opacity: 0.1;          /* 透過でテキスト可読性を確保 */
+            pointer-events: none; /* 背景のクリック無効化 */
+            z-index: 0;
+        }
+        section[data-bg] > * {
+            position: relative;
+            z-index: 1;            /* 背景より前面へ */
+        }
+
+        /* --------------------------------------------------
+           数字で見る POLARIS
         -------------------------------------------------- */
         .stats {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
             gap: 32px;
-            margin-top: -40px;
-            position: relative;
             z-index: 1;
         }
         .stat {
@@ -93,11 +113,8 @@
         }
 
         /* --------------------------------------------------
-           セクション共通
+           タイポ & カード汎用
         -------------------------------------------------- */
-        section {
-            margin-top: 64px;
-        }
         section h2 {
             font-size: 1.8rem;
             margin: 0 0 24px;
@@ -191,7 +208,6 @@
         @media (max-width: 600px) {
             header h1 { font-size: 2.2rem; }
             .stat-number { font-size: 1.7rem; }
-            header::after { height: 80px; }
         }
     </style>
 </head>
@@ -213,8 +229,8 @@
             </div>
         </section>
 
-        <!-- 会社概要 & 経営基盤 -->
-        <section>
+        <!-- 会社概要 -->
+        <section data-bg style="--section-bg:url('images/Company.jpg');">
             <h2>会社情報</h2>
             <div class="card-grid">
                 <div class="card">
@@ -227,7 +243,7 @@
         </section>
 
         <!-- 事業目的 -->
-        <section>
+        <section data-bg style="--section-bg:url('images/Business.jpg');">
             <h2>事業目的</h2>
             <div class="card">
                 <ul>
