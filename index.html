@@ -64,14 +64,60 @@
             margin-top: 64px;
             position: relative; /* 背景重ね用 */
         }
-        h2,h3 {
-            text-align:center;
-        }
         img {
             width: 70%;
             border-radius: 12px;
             display: block;
             margin: 0 auto;
+        }
+        /* 画像まわりのラッパー  */
+        .kv{
+          position: relative;     /* 子要素を絶対配置するため */
+          overflow: hidden;       /* 角丸画像なら必須 */
+        }
+        
+        /* 画像自体（お好みで width:100% など） */
+        .kv img{
+          display:block;
+          width:100%;
+          height:auto;
+        }
+        
+        /* ── ❶ 画像下部へ“白背景”をかぶせる ── */
+        .kv::after{
+          content:"";
+          position:absolute;
+          bottom:0; left:0;
+          width:100%;
+          height:120px;           /* 白帯の高さ。見た目で調整 */
+          background:#fff;
+          z-index:1;              /* 見出しの下に来るよう 1 にしておく */
+        }
+        
+        /* ── ❷ 見出しを中央に配置 ── */
+        .kv__title{
+          position:absolute;
+          bottom:40px;            /* 白帯の中に潜り込ませる距離 */
+          left:50%;
+          transform:translateX(-50%);
+          margin:0;
+          padding:0;
+          font-size:2rem;         /* お好みで */
+          font-weight:700;
+          color:#00803D;          /* グリーン系の例 */
+          text-align:center;
+          z-index:2;              /* 白帯より手前に表示 */
+        }
+        
+        /* ↓ おまけ：アンダーラインを付けたい場合  */
+        .kv__title::after{
+          content:"";
+          display:block;
+          width:120px;
+          height:4px;
+          margin:12px auto 0;
+          background:#00803D;
+          border-radius:2px;
         }
 
         /* --------------------------------------------------
@@ -126,7 +172,6 @@
             height: 4px;
             background: var(--primary);
             border-radius: 4px;
-            margin-left: calc(50% - 36px);
         }
 
         .card-grid {
@@ -215,36 +260,25 @@
     <main>
         <!-- 数字で見る POLARIS -->
         <section class="stats" aria-label="数字で見る POLARIS">
-            <div class="stat">
-                <div class="stat-number">2025</div>
-                <div class="stat-label">設立年</div>
-            </div>
-            <div class="stat">
-                <div class="stat-number">900万<span style="font-size:.75em;">円</span></div>
-                <div class="stat-label">資本金</div>
-            </div>
+            <div class="officer"><p>2025</p><span>設立年</span></div>
+            <div class="officer"><p>900万<span style="font-size:.75em;">円</span></p><span>資本金</span></div>
         </section>
 
         <!-- 会社概要 -->
-        <section>
+        <section class="kv">
             <img src="images/Company.jpg"/>
-            <h2>会社情報</h2>
-            <h3>会社概要</h3>
-            <div class="card-grid">
-                <div class="card">
-                    <table class="overview-table">
-                        <tr><td>商号</td><td>株式会社POLARIS</td></tr>
-                        <tr><td>所在地</td><td>東京都中央区銀座1丁目7番16号 コミット銀座ビル</td></tr>
-                        <tr><td>設立</td><td>2025年12月9日</td></tr>
-                    </table>
-                </div>
-            </div>
+            <h2 class="kv__title">会社情報</h2>
+            <table class="overview-table">
+                <tr><td>商号</td><td>株式会社POLARIS</td></tr>
+                <tr><td>所在地</td><td>東京都中央区銀座1丁目7番16号 コミット銀座ビル</td></tr>
+                <tr><td>設立</td><td>2025年12月9日</td></tr>
+            </table>
         </section>
 
         <!-- 事業目的 -->
-        <section>
+        <section class="kv">
             <img src="images/Business.jpg"/>
-            <h2>事業目的</h2>
+            <h2 class="kv__title">事業目的</h2>
             <div class="card">
                 <ul>
                     <li>サッカークラブの経営</li>
