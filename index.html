@@ -1,336 +1,339 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>株式会社POLARIS - 会社概要</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
-    <style>
-        /* --------------------------------------------------
-           基本設定
-        -------------------------------------------------- */
-        :root {
-            /* LION を意識した深緑系コーポレートカラー */
-            --primary: #00853f;
-            --primary-light: #00a651;
-            --gray-bg: #e9ebec;
-            --card-bg: #ffffff;
-            --text-main: #222;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>株式会社POLARIS | 会社概要</title>
 
-        * { box-sizing: border-box; }
-        body {
-            margin: 0;
-            font-family: 'Noto Sans JP', sans-serif;
-            color: var(--text-main);
-            line-height: 1.8;
-        }
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
 
-        a { color: var(--primary); text-decoration: none; }
-        a:hover { text-decoration: underline; }
+  <style>
+  /* --------------------------------------------------
+     基本設定
+  -------------------------------------------------- */
+  :root{
+    --primary:        #00853f;
+    --primary-light:  #00a651;
+    --gray-bg:        #e9ebec;
+    --card-bg:        #ffffff;
+    --text-main:      #333;      /* コントラスト改善 */
+  }
 
-        /* --------------------------------------------------
-           レイアウト
-        -------------------------------------------------- */
-        header {
-            background-color: var(--card-bg);
-            padding: 40px 5% 60px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        header h1 {
-            margin: 0;
-            font-size: 2.6rem;
-            font-weight: 700;
-            color: var(--primary);
-        }
-        header p {
-            margin: 8px 0 0;
-            font-size: 1.1rem;
-            color: #555;
-        }
+  *,*::before,*::after{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:'Noto Sans JP',sans-serif;
+    color:var(--text-main);
+    line-height:1.8;
+    background:#fafafa;
+  }
 
-        main {
-            max-width: 1080px;
-            margin: 0 auto;
-            padding: 0 5% 80px;
-        }
+  a{color:var(--primary);text-decoration:none;}
+  a:hover{text-decoration:underline;}
 
-        /* --------------------------------------------------
-           セクション背景（★追加）
-        -------------------------------------------------- */
-        section {
-            margin-top: 64px;
-            position: relative; /* 背景重ね用 */
-        }
-        img {
-            width: 70%;
-            border-radius: 12px;
-            display: block;
-            margin: 0 auto;
-        }
+  /* --------------------------------------------------
+     レイアウト
+  -------------------------------------------------- */
+  header{
+    background:var(--card-bg);
+    padding:64px 5% 48px;       /* 上下バランス調整 */
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+  }
+  header h1{
+    margin:0;
+    font-size:clamp(2rem,4vw+1rem,2.6rem); /* レスポンシブ */
+    font-weight:700;
+    color:var(--primary);
+  }
 
-        /* --------------------------------------------------
-           数字で見る POLARIS
-        -------------------------------------------------- */
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-            gap: 32px;
-            z-index: 1;
-        }
-        .stat {
-            background-color: var(--gray-bg);
-            border-radius: 12px;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.06);
-            padding: 24px 12px 28px;
-            text-align: center;
-            transition: transform .3s ease, box-shadow .3s ease;
-        }
-        .stat:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-        }
-        .stat-number {
-            font-size: 2rem !important;
-            font-weight: 700 !important;
-            color: var(--primary);
-        }
-        .stat-label {
-            margin-top: 4px;
-            font-size: .95rem;
-            color: #666;
-        }
+  main{
+    max-width:960px;            /* 行長・可読性を優先 */
+    margin:0 auto;
+    padding:0 5% 80px;
+  }
 
-        /* --------------------------------------------------
-           タイポ & カード汎用
-        -------------------------------------------------- */
-        section h2 {
-            font-size: 1.8rem;
-            margin: 1rem 0 3rem;
-            padding-bottom: 8px;
-            position: relative;
-            color: var(--primary);
-            font-weight: 700;
-        }
-        section h2::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            bottom: -4px;
-            width: 72px;
-            height: 4px;
-            background: var(--primary);
-            border-radius: 4px;
-        }
+  /* --------------------------------------------------
+     セクション余白
+  -------------------------------------------------- */
+  main>section{margin-top:64px;}
+  main>section:first-child{margin-top:48px;} /* Hero 直下を詰める */
 
-        .card-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 24px;
-        }
-        .card {
-            background: var(--gray-bg);
-            border-radius: 12px;
-            box-shadow: 0 3px 12px rgba(0,0,0,0.05);
-            padding: 24px 20px 28px;
-            transition: transform .3s ease, box-shadow .3s ease;
-        }
-        .card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 18px rgba(0,0,0,0.08);
-        }
-        .card h3 {
-            font-size: 1.2rem;
-            margin: 0 0 12px;
-            color: var(--primary);
-            font-weight: 700;
-        }
-        .card p {
-            margin: 0 0 8px;
-            font-size: .93rem;
-            color: #444;
-        }
-        .card ul { list-style: none; padding: 0; margin: 0; }
-        .card ul li {
-            position: relative;
-            padding-left: 1.1em;
-            margin: 0 0 6px;
-            font-size: .93rem;
-        }
-        .card ul li::before {
-            content: "\2022";
-            position: absolute;
-            left: 0;
-            color: var(--primary);
-            font-weight: bold;
-        }
+  /* 小画面でややタイトに */
+  @media(max-width:600px){
+    main>section{margin-top:48px;}
+    main>section:first-child{margin-top:32px;}
+  }
 
-        /* =========================================
-           会社情報テーブル
-        ========================================= */
-        .overview-table{
-          width:100%;
-          border-collapse:collapse;      /* 罫線を一体化 */
-          background:var(--card-bg);     /* 白ベース（カード） */
-          border-radius:12px;
-          overflow:hidden;               /* 角丸を効かせる */
-          box-shadow:0 3px 12px rgba(0,0,0,.05);
-          margin:32px 0 0;
-          font-size:1rem;
-        }
-        
-        /* 行ストライプ & ホバー */
-        .overview-table tr:nth-child(even){background:var(--gray-bg);}
-        .overview-table tr:hover{background:#dff1e8;}
-        
-        /* セル共通 */
-        .overview-table td{
-          padding:16px 20px;
-          vertical-align:top;
-          line-height:1.6;
-        }
-        
-        /* 左側（項目名） */
-        .overview-table td:first-child{
-          width:34%;                     /* PC での比率 */
-          font-weight:600;
-          color:var(--primary);
-          background:#e8f3ed;
-          border-right:4px solid #c7e6d5;/* 緑系ボーダーでアクセント */
-        }
-        
-        /* 右側（値） */
-        .overview-table td:last-child{
-          color:#444;
-        }
-        
-        /* ---------- 600px 以下でカード化 ---------- */
-        @media(max-width:600px){
-          .overview-table,
-          .overview-table tbody,
-          .overview-table tr,
-          .overview-table td{
-            display:block;
-            width:100%;
-          }
-        
-          .overview-table{margin-top:24px;}
-        
-          .overview-table tr{
-            margin-bottom:12px;
-            background:var(--gray-bg);
-            border-radius:8px;
-            overflow:hidden;
-            box-shadow:0 2px 8px rgba(0,0,0,.04);
-          }
-        
-          /* 上：ラベル / 下：値 の２段組に */
-          .overview-table td:first-child{
-            width:100%;
-            border-right:none;
-            border-bottom:1px solid #c7e6d5;
-            background:#e8f3ed;
-            padding:12px 16px 8px;
-          }
-          .overview-table td:last-child{
-            padding:8px 16px 12px;
-          }
-        }
+  /* --------------------------------------------------
+     セクション共通画像
+  -------------------------------------------------- */
+  .kv img{
+    width:70%;
+    max-width:960px;
+    aspect-ratio:16/9;          /* レイアウトシフト防止 */
+    object-fit:cover;
+    border-radius:12px;
+    display:block;
+    margin:0 auto;
+  }
 
+  /* --------------------------------------------------
+     見出し
+  -------------------------------------------------- */
+  section h2{
+    font-size:clamp(1.4rem,2vw+1rem,1.8rem);
+    margin:1rem 0 3rem;
+    padding-bottom:8px;
+    position:relative;
+    color:var(--primary);
+    font-weight:700;
+  }
+  section h2::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-4px;
+    width:72px;
+    height:4px;
+    background:var(--primary);
+    border-radius:4px;
+    transform-origin:left;
+    transform:scaleX(0);
+    transition:.6s;
+  }
+  /* 視覚効果：スクロール時フェードイン */
+  .observer-fade{opacity:0;transform:translateY(20px);transition:.6s;}
+  .observer-fade.is-visible{opacity:1;transform:none;}
+  .observer-fade.is-visible h2::after{transform:scaleX(1);}
 
-        /* 役員グリッド */
-        .officer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-        }
-        .officer {
-            background: #e8f3ed;
-            border-radius: 12px;
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.04);
-            transition: background-color .3s ease;
-        }
-        .officer:hover { background: #dff1e8; }
-        .officer p { margin: 4px 0 0; font-size: 1rem; font-weight: 600; }
-        .officer span { display: block; font-size: .9rem; color: #555; }
+  /* --------------------------------------------------
+     数字で見る POLARIS
+  -------------------------------------------------- */
+  .stats{
+    margin:0 0 64px;            /* セクションと本文の間に空気感 */
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+    gap:32px;
+  }
+  .stat{
+    background:var(--gray-bg);
+    border-radius:12px;
+    box-shadow:0 4px 16px rgba(0,0,0,.06);
+    padding:24px 12px 28px;
+    text-align:center;
+    transition:transform .3s,box-shadow .3s,background .3s;
+  }
+  .stat:hover{
+    transform:translateY(-4px);
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+    background:#dff1e8;         /* officer と統一 */
+  }
+  .stat-number{
+    font-size:2rem;
+    font-weight:700;
+    color:var(--primary);
+  }
+  .stat-label{
+    margin-top:4px;
+    font-size:.95rem;
+    color:#666;
+  }
 
-        footer {
-            margin-top: 80px;
-            padding: 40px 0;
-            text-align: center;
-            font-size: .85rem;
-            color: #777;
-        }
+  /* --------------------------------------------------
+     汎用カード
+  -------------------------------------------------- */
+  .card{
+    background:var(--gray-bg);
+    border-radius:12px;
+    box-shadow:0 3px 12px rgba(0,0,0,.05);
+    padding:24px 20px 28px;
+    transition:transform .3s,box-shadow .3s;
+  }
+  .card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 8px 18px rgba(0,0,0,.08);
+  }
 
-        /* --------------------------------------------------
-           レスポンシブ
-        -------------------------------------------------- */
-        @media (max-width: 600px) {
-            header h1 { font-size: 2.2rem; }
-            .stat-number { font-size: 1.7rem; }
-            img {width:100%;}
-        }
-    </style>
+  /* --------------------------------------------------
+     会社情報テーブル
+  -------------------------------------------------- */
+  .overview-table{
+    width:100%;
+    border-collapse:collapse;
+    background:var(--card-bg);
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 3px 12px rgba(0,0,0,.05);
+    margin:32px 0 0;
+    font-size:1rem;
+  }
+  .overview-table tr:nth-child(even){background:var(--gray-bg);}
+  .overview-table tr:hover{background:#dff1e8;}
+  .overview-table td{
+    padding:16px 20px;
+    vertical-align:top;
+    line-height:1.6;
+  }
+  .overview-table td:first-child{
+    width:34%;
+    font-weight:600;
+    color:var(--primary);
+    background:#e8f3ed;
+    border-right:4px solid #c7e6d5;
+  }
+  .overview-table td:last-child{color:#444;}
+
+  /* 600px 以下：カード化 */
+  @media(max-width:600px){
+    .overview-table,
+    .overview-table tbody,
+    .overview-table tr,
+    .overview-table td{display:block;width:100%;}
+    .overview-table{margin-top:24px;}
+    .overview-table tr{
+      margin-bottom:12px;
+      background:var(--gray-bg);
+      border-radius:8px;
+      overflow:hidden;
+      box-shadow:0 2px 8px rgba(0,0,0,.04);
+    }
+    .overview-table td:first-child{
+      width:100%;
+      border-right:none;
+      border-bottom:1px solid #c7e6d5;
+      background:#e8f3ed;
+      padding:12px 16px 8px;
+    }
+    .overview-table td:last-child{padding:8px 16px 12px;}
+  }
+
+  /* --------------------------------------------------
+     役員グリッド
+  -------------------------------------------------- */
+  .officer-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:20px;
+  }
+  .officer{
+    background:#e8f3ed;
+    border-radius:12px;
+    padding:20px;
+    text-align:center;
+    box-shadow:0 3px 10px rgba(0,0,0,.04);
+    transition:background-color .3s;
+  }
+  .officer:hover{background:#dff1e8;}
+  .officer p{margin:4px 0 0;font-size:1rem;font-weight:600;}
+  .officer span{display:block;font-size:.9rem;color:#555;}
+
+  /* --------------------------------------------------
+     フッター
+  -------------------------------------------------- */
+  footer{
+    margin-top:64px;       /* 余白詰め */
+    padding:40px 0;
+    text-align:center;
+    font-size:.85rem;
+    color:#777;
+  }
+
+  /* --------------------------------------------------
+     スマホ微調整
+  -------------------------------------------------- */
+  @media(max-width:600px){
+    header h1{font-size:2.2rem;}
+    .stat-number{font-size:1.7rem;}
+    .kv img{width:100%;}
+  }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>株式会社POLARIS</h1>
-    </header>
 
-    <main>
-        <!-- 数字で見る POLARIS -->
-        <section class="stats" aria-label="数字で見る POLARIS">
-            <div class="officer"><p class="stat-number">2025</p><span class="stat-label">設立年</span></div>
-            <div class="officer"><p class="stat-number">900万円</p><span class="stat-label">資本金</span></div>
-        </section>
+  <header>
+    <h1>株式会社POLARIS</h1>
+  </header>
 
-        <!-- 会社概要 -->
-        <section class="kv">
-            <img src="images/Company.jpg"/>
-            <h2 class="kv__title">会社情報</h2>
-            <table class="overview-table">
-                <tr><td>商号</td><td>株式会社POLARIS</td></tr>
-                <tr><td>所在地</td><td>東京都中央区銀座1丁目7番16号 コミット銀座ビル</td></tr>
-                <tr><td>設立</td><td>2025年12月9日</td></tr>
-            </table>
-        </section>
+  <main>
+    <!-- 数字で見る POLARIS -->
+    <section class="stats observer-fade" aria-label="数字で見る POLARIS">
+      <div class="stat">
+        <p class="stat-number">2025</p>
+        <span class="stat-label">設立年</span>
+      </div>
+      <div class="stat">
+        <p class="stat-number">900万円</p>
+        <span class="stat-label">資本金</span>
+      </div>
+    </section>
 
-        <!-- 事業目的 -->
-        <section class="kv">
-            <img src="images/Business.jpg"/>
-            <h2 class="kv__title">事業目的</h2>
-            <div class="card">
-                <ul>
-                    <li>サッカークラブの経営</li>
-                    <li>選手の育成・指導</li>
-                    <li>サッカーイベントの企画・運営</li>
-                    <li>スポーツ指導員の養成</li>
-                    <li>国内外物産販売</li>
-                    <li>記念品・オークション販売</li>
-                    <li>Web制作・広告代理業</li>
-                    <li>不動産賃貸・管理</li>
-                    <li>関連事業全般</li>
-                </ul>
-            </div>
-        </section>
+    <!-- 会社概要 -->
+    <section class="kv observer-fade">
+      <img src="images/Company.jpg"
+           alt="POLARIS 本社外観"
+           width="960" height="540" loading="lazy">
+      <h2>会社情報</h2>
 
-        <!-- 役員一覧 -->
-        <section>
-            <h2>役員一覧</h2>
-            <div class="officer-grid">
-                <div class="officer"><p>大津 祐樹</p><span>代表取締役</span></div>
-                <div class="officer"><p>平野 隆太</p><span>取締役</span></div>
-                <div class="officer"><p>木暮 郁哉</p><span>取締役</span></div>
-            </div>
-        </section>
+      <table class="overview-table" aria-label="会社情報">
+        <tr><td>商号</td><td>株式会社POLARIS</td></tr>
+        <tr><td>所在地</td><td>東京都中央区銀座1丁目7番16号 コミット銀座ビル</td></tr>
+        <tr><td>設立</td><td>2025年12月9日</td></tr>
+      </table>
+    </section>
 
-        <footer>
-            © 2025 株式会社POLARIS. All rights reserved.
-        </footer>
-    </main>
+    <!-- 事業目的 -->
+    <section class="kv observer-fade">
+      <img src="images/Business.jpg"
+           alt="事業イメージ"
+           width="960" height="540" loading="lazy">
+      <h2>事業目的</h2>
+
+      <div class="card">
+        <ul>
+          <li>サッカークラブの経営</li>
+          <li>選手の育成・指導</li>
+          <li>サッカーイベントの企画・運営</li>
+          <li>スポーツ指導員の養成</li>
+          <li>国内外物産販売</li>
+          <li>記念品・オークション販売</li>
+          <li>Web制作・広告代理業</li>
+          <li>不動産賃貸・管理</li>
+          <li>関連事業全般</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 役員一覧 -->
+    <section class="observer-fade">
+      <h2>役員一覧</h2>
+      <div class="officer-grid">
+        <div class="officer"><p>大津 祐樹</p><span>代表取締役</span></div>
+        <div class="officer"><p>平野 隆太</p><span>取締役</span></div>
+        <div class="officer"><p>木暮 郁哉</p><span>取締役</span></div>
+      </div>
+    </section>
+
+    <footer>
+      © 2025 株式会社POLARIS. All rights reserved.
+    </footer>
+  </main>
+
+  <!-- --------------------------------------------
+       IntersectionObserver でフェード演出
+  --------------------------------------------- -->
+  <script>
+  const io = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        e.target.classList.add('is-visible');
+        io.unobserve(e.target);
+      }
+    });
+  },{threshold:0.2});
+  document.querySelectorAll('.observer-fade').forEach(el=>io.observe(el));
+  </script>
 </body>
 </html>
