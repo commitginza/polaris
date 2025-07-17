@@ -23,7 +23,6 @@
             margin: 0;
             font-family: 'Noto Sans JP', sans-serif;
             color: var(--text-main);
-            background-color: var(--gray-bg);
             line-height: 1.8;
         }
 
@@ -65,23 +64,6 @@
             margin-top: 64px;
             position: relative; /* 背景重ね用 */
         }
-        /* data-bg が付いたセクションは、CSS 変数 --section-bg に指定した画像を敷く */
-        section[data-bg]::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: var(--section-bg) center/cover no-repeat;
-            opacity: 0.1;          /* 透過でテキスト可読性を確保 */
-            pointer-events: none; /* 背景のクリック無効化 */
-            z-index: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100vw;
-        }
-        section[data-bg] > * {
-            position: relative;
-            z-index: 1;            /* 背景より前面へ */
-        }
 
         /* --------------------------------------------------
            数字で見る POLARIS
@@ -93,7 +75,7 @@
             z-index: 1;
         }
         .stat {
-            background: var(--card-bg);
+            background-color: var(--gray-bg);
             border-radius: 12px;
             box-shadow: 0 4px 16px rgba(0,0,0,0.06);
             padding: 24px 12px 28px;
@@ -233,30 +215,38 @@
         </section>
 
         <!-- 会社概要 -->
-        <section data-bg style="--section-bg:url('images/Company.jpg');">
+        <section>
+            <img src="images/Company.jpg"/>
             <h2>会社情報</h2>
             <h3>会社概要</h3>
-            <table class="overview-table">
-                <tr><td>商号</td><td>株式会社POLARIS</td></tr>
-                <tr><td>所在地</td><td>東京都中央区銀座1丁目7番16号 コミット銀座ビル</td></tr>
-                <tr><td>設立</td><td>2025年12月9日</td></tr>
-            </table>
+            <div class="card-grid">
+                <div class="card">
+                    <table class="overview-table">
+                        <tr><td>商号</td><td>株式会社POLARIS</td></tr>
+                        <tr><td>所在地</td><td>東京都中央区銀座1丁目7番16号 コミット銀座ビル</td></tr>
+                        <tr><td>設立</td><td>2025年12月9日</td></tr>
+                    </table>
+                </div>
+            </div>
         </section>
 
         <!-- 事業目的 -->
-        <section data-bg style="--section-bg:url('images/Business.jpg');">
+        <section>
+            <img src="images/Business.jpg"/>
             <h2>事業目的</h2>
-            <ul>
-                <li>サッカークラブの経営</li>
-                <li>選手の育成・指導</li>
-                <li>サッカーイベントの企画・運営</li>
-                <li>スポーツ指導員の養成</li>
-                <li>国内外物産販売</li>
-                <li>記念品・オークション販売</li>
-                <li>Web制作・広告代理業</li>
-                <li>不動産賃貸・管理</li>
-                <li>関連事業全般</li>
-            </ul>
+            <div class="card">
+                <ul>
+                    <li>サッカークラブの経営</li>
+                    <li>選手の育成・指導</li>
+                    <li>サッカーイベントの企画・運営</li>
+                    <li>スポーツ指導員の養成</li>
+                    <li>国内外物産販売</li>
+                    <li>記念品・オークション販売</li>
+                    <li>Web制作・広告代理業</li>
+                    <li>不動産賃貸・管理</li>
+                    <li>関連事業全般</li>
+                </ul>
+            </div>
         </section>
 
         <!-- 役員一覧 -->
