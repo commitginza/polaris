@@ -71,9 +71,9 @@
      セクション共通画像
   -------------------------------------------------- */
   .kv img{
-    width:70%;
+    width:100%;
     max-width:960px;
-    aspect-ratio:16/9;          /* レイアウトシフト防止 */
+    height: clamp(160px, 30vh, 240px);
     object-fit:cover;
     border-radius:12px;
     display:block;
