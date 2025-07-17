@@ -74,6 +74,9 @@
             opacity: 0.1;          /* 透過でテキスト可読性を確保 */
             pointer-events: none; /* 背景のクリック無効化 */
             z-index: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100vw;
         }
         section[data-bg] > * {
             position: relative;
@@ -232,32 +235,27 @@
         <!-- 会社概要 -->
         <section data-bg style="--section-bg:url('images/Company.jpg');">
             <h2>会社情報</h2>
-            <div class="card-grid">
-                <div class="card">
-                    <h3>会社概要</h3>
-                    <p><strong>商号:</strong> 株式会社POLARIS</p>
-                    <p><strong>所在地:</strong> 東京都中央区銀座1丁目7番16号 コミット銀座ビル</p>
-                    <p><strong>設立:</strong> 令和6年12月9日</p>
-                </div>
-            </div>
+            <h3>会社概要</h3>
+            <table class="overview-table">
+                <tr><td>商号</td><td>株式会社POLARIS</td></tr>
+                <tr><td>所在地</td><td>東京都中央区銀座1丁目7番16号 コミット銀座ビル</td></tr>
+                <tr><td>設立</td><td>2025年12月9日</td></tr>
         </section>
 
         <!-- 事業目的 -->
         <section data-bg style="--section-bg:url('images/Business.jpg');">
             <h2>事業目的</h2>
-            <div class="card">
-                <ul>
-                    <li>サッカークラブの経営</li>
-                    <li>選手の育成・指導</li>
-                    <li>サッカーイベントの企画・運営</li>
-                    <li>スポーツ指導員の養成</li>
-                    <li>国内外物産販売</li>
-                    <li>記念品・オークション販売</li>
-                    <li>Web制作・広告代理業</li>
-                    <li>不動産賃貸・管理</li>
-                    <li>関連事業全般</li>
-                </ul>
-            </div>
+            <ul>
+                <li>サッカークラブの経営</li>
+                <li>選手の育成・指導</li>
+                <li>サッカーイベントの企画・運営</li>
+                <li>スポーツ指導員の養成</li>
+                <li>国内外物産販売</li>
+                <li>記念品・オークション販売</li>
+                <li>Web制作・広告代理業</li>
+                <li>不動産賃貸・管理</li>
+                <li>関連事業全般</li>
+            </ul>
         </section>
 
         <!-- 役員一覧 -->
