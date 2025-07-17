@@ -95,7 +95,7 @@
   .overview-table td:first-child{width:34%;font-weight:600;color:var(--primary);background:#e8f3ed;border-right:4px solid #c7e6d5;}
   .overview-table td:last-child{color:#444;}
   @media(max-width:600px){.overview-table,.overview-table tbody,.overview-table tr,.overview-table td{display:block;width:100%;}.overview-table{margin-top:24px;}.overview-table tr{margin-bottom:12px;background:var(--gray-bg);border-radius:8px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.04);}.overview-table td:first-child{width:100%;border-right:none;border-bottom:1px solid #c7e6d5;background:#e8f3ed;padding:12px 16px 8px;}.overview-table td:last-child{padding:8px 16px 12px;}}
-
+  #overview img {width:100%;max-width:960px;aspect-ratio:16/9;object-fit:cover;display:block;margin:0 auto;}
   /* 役員グリッド */
   .officer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;}
   .officer{background:#e8f3ed;border-radius:12px;padding:20px;text-align:center;box-shadow:0 3px 10px rgba(0,0,0,.04);transition:background-color .3s;}
@@ -114,7 +114,6 @@
 <body>
   <header>
     <h1>株式会社POLARIS</h1>
-    <p class="tagline">Limitless Potential, Together.</p>
     <nav class="anchor" aria-label="ページ内リンク">
       <a href="#philosophy">企業理念</a>
       <a href="#business">事業内容</a>
