@@ -67,12 +67,11 @@
         h2,h3 {
             text-align:center;
         }
-        .img-wrap {
-            margin:0 auto;
-        }
         img {
             width: 70%;
             border-radius: 12px;
+            display: block;
+            margin: 0 auto;
         }
 
         /* --------------------------------------------------
@@ -127,6 +126,7 @@
             height: 4px;
             background: var(--primary);
             border-radius: 4px;
+            margin-left: calc(50% - 36px);
         }
 
         .card-grid {
@@ -203,6 +203,7 @@
         @media (max-width: 600px) {
             header h1 { font-size: 2.2rem; }
             .stat-number { font-size: 1.7rem; }
+            img {width:100%;}
         }
     </style>
 </head>
@@ -226,9 +227,7 @@
 
         <!-- 会社概要 -->
         <section>
-            <div class="img-wrap">
-                <img src="images/Company.jpg"/>
-            </div>
+            <img src="images/Company.jpg"/>
             <h2>会社情報</h2>
             <h3>会社概要</h3>
             <div class="card-grid">
@@ -244,9 +243,7 @@
 
         <!-- 事業目的 -->
         <section>
-            <div class="img-wrap">
-                <img src="images/Business.jpg"/>
-            </div>
+            <img src="images/Business.jpg"/>
             <h2>事業目的</h2>
             <div class="card">
                 <ul>
